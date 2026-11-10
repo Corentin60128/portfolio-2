@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as *;
+
+@mixin from-md {
+    @media (min-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin focus-ring {
+    outline: 3px solid $color-primary-hover;
+    outline-offset: 3px;
+}

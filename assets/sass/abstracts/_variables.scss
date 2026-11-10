@@ -1,0 +1,32 @@
+// Couleur //
+
+$color-bg: #000;
+$color-surface: #121212;
+$color-border: #2a2a2a;
+$color-text: #f4f4f5;
+$color-text-muted: #a1a1aa;
+$color-primary: #a95cf8;
+$color-primary-hover: #a95cf8;
+
+
+// Typographie 
+
+$font-display: 'Archivo Black', 'Arial Black', sans-serif;
+$font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+// Espacement 
+
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$spacce-lg: 3rem;
+$space-xl: 6rem;
+
+// Divers 
+
+$radius-sm: 0.75rem;
+$radius-lg: 1.25rem;
+$radius-pill: 999px;
+$container: 72rem;
+$breakpoint-md: 48rem;
+$transition: 0.2s ease;

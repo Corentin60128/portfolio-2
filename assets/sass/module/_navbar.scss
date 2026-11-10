@@ -1,0 +1,121 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    max-width: $container;
+    margin: 0 auto;
+    padding: 0.6rem 0.75rem 0.6rem 1.5rem;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid $color-border;
+    border-radius: $radius-pill;
+
+    &__logo{
+        font-family: $font-display;
+        font-size: 1.25rem;
+        text-decoration: none;
+    }
+
+    &__toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.75rem;
+        background: none;
+        border: 0;
+        cursor: pointer;
+
+        @include from-md {
+            display: none;
+        }
+    }
+
+    &__toggle-bar {
+        width: 22px;
+        height: 2px;
+        background: $color-text;
+        transition: transform $transition, opacity $transition;
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + 00.5rem);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        gap: $space-md;
+        padding: $space-md;
+        background: $color-surface;
+        border: 1px solid $color-border;
+        border-radius: $radius-lg;
+      
+
+        &--open {
+            display: flex;
+        }
+
+        @include from-md {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: $space-md;
+            padding: 0;
+            background: none;
+            border: 0;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $space-xs;
+
+        @include from-md {
+            flex-direction: row;
+            gap: $space-md;
+        }
+    }
+
+    &__link {
+        display: block;
+        padding: 0.4rem 0;
+        color: $color-text-muted;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color $transition;
+
+        &:hover {
+            color: $color-primary;
+            text-decoration: underline;
+            text-decoration-color:$color-primary ;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 6px;
+        }
+
+    }
+    
+    &__cta {
+        text-align: center;
+    }
+
+    &__toggle[aria-expanded='true'] &__toggle-bar {
+        &:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+}

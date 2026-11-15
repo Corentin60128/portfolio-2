@@ -1,0 +1,63 @@
+@use '../abstracts/variables' as *;
+
+.tech-band {
+    overflow: hidden;
+    padding-block: $space-sm;
+    border-block: 1px solid $color-border;
+
+    &__track {
+        display: flex;
+        width: max-content;
+        animation: tech-band-scroll 28s linear infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+            width: auto;
+            justify-content: center;
+            animation: none;
+        }
+    }
+
+    &__group {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        @media (prefers-reduced-motion: reduce) {
+            &[aria-hidden="true"] {
+                display: none;
+            }
+        }
+    }
+
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: $space-md;
+        padding-right: $space-md;
+        color: transparent;
+        font-family: $font-display;
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+        -webkit-text-stroke: 1px $color-text;
+
+        &::after {
+            content: "";
+            flex: none;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: $color-primary;
+            border-radius: 50%;
+        }
+    }
+
+    @keyframes tech-band-scroll {
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}

@@ -5,19 +5,26 @@
 .navbar {
     position: relative;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
     max-width: $container;
     margin: 0 auto;
+    // mobile : le burger a déjà son propre padding (0.75rem) côté droit
     padding: 0.6rem 0.75rem 0.6rem 1.5rem;
     background: rgba(18, 18, 18, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid $color-border;
     border-radius: $radius-pill;
 
+    // ordinateur : même espace à gauche et à droite
+    @include from-md {
+        padding: 0.75rem 1.75rem;
+    }
+
     &__logo{
         font-family: $font-display;
         font-size: 1.25rem;
+        line-height: 1; // annule le décalage vertical d'Archivo Black
         text-decoration: none;
     }
 
@@ -76,6 +83,9 @@
         display: flex;
         flex-direction: column;
         gap: $space-xs;
+        margin: 0;
+        padding: 0;
+        list-style: none;
 
         @include from-md {
             flex-direction: row;
@@ -88,6 +98,7 @@
         padding: 0.4rem 0;
         color: $color-text-muted;
         font-weight: 500;
+        line-height: 1;
         text-decoration: none;
         transition: color $transition;
 
